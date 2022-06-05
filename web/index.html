@@ -31,6 +31,16 @@
         margin: 0; padding: 0;
         position: fixed;
       }
+      @media only screen and (min-device-width: 576px) {
+        .loading {
+          width: 100%;
+        }
+      }
+      @media only screen and (min-device-width: 1024px) {
+        .loading {
+          width: 40%;
+        }
+      }
       #loading {
         align-items: center;
         display: flex;
@@ -53,7 +63,7 @@
       @keyframes breathe { from { transform: scale(1) } to { transform: scale(0.95)}}
       @keyframes zooooom { from { transform: scale(1) } to { transform: scale(10)}}
       </style>
-    <img src="icons/loading.webp" width="40%" alt="Loading..." />
+    <img class="loading" src="icons/loading.webp" alt="Loading..." />
   </div>
 
   <script>
