@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <base href="$FLUTTER_BASE_HREF">
 
@@ -53,7 +53,7 @@
       @keyframes breathe { from { transform: scale(1) } to { transform: scale(0.95)}}
       @keyframes zooooom { from { transform: scale(1) } to { transform: scale(10)}}
       </style>
-    <img src="icons/loading.png" width="40%" alt="Loading..." />
+    <img src="icons/loading.webp" width="40%" alt="Loading..." />
   </div>
 
   <script>
@@ -70,8 +70,6 @@
         loading.classList.add('init_done');
         return appRunner.runApp();
       }).then(function(app) {
-        // Wait a few milliseconds so users can see the "zoooom" animation
-        // before getting rid of the "loading" div.
         window.setTimeout(function() {
           loading.remove();
         }, 200);
