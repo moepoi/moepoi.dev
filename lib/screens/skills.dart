@@ -30,7 +30,7 @@ class _SkillsState extends State<Skills> {
               child: IconButton(
                 icon: const Icon(Icons.close, color: Color.fromARGB(255, 80, 192, 144),),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '');
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               ),
             ),

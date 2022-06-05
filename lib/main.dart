@@ -23,9 +23,9 @@ class _MoepoiState extends State<Moepoi> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '',
+      initialRoute: '/',
       routes: {
-        '': (context) => const Home(),
+        '/': (context) => const Home(),
         '/projects': (context) => const Projects(),
         '/skills': (context) => const Skills(),
         '/resume': (context) => const Resume(),
