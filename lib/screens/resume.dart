@@ -1,3 +1,4 @@
+import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
 import 'package:moepoi_site/components/resume_experience.dart';
@@ -31,6 +32,7 @@ class _ResumeState extends State<Resume> {
               child: IconButton(
                 icon: const Icon(Icons.close, color: Color.fromARGB(255, 80, 192, 144),),
                 onPressed: () {
+                  html.window.history.pushState(null, '', '/');
                   Navigator.pushReplacementNamed(context, '/');
                 },
               ),
