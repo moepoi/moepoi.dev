@@ -1,0 +1,18 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://moepoi.dev/</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://moepoi.dev/resume/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://moepoi.dev/skills/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://moepoi.dev/projects</loc>
+        <priority>0.5</priority>
+    </url>
+</urlset>
