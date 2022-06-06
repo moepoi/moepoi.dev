@@ -1,3 +1,4 @@
+import 'package:page_transition/page_transition.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +25,19 @@ class _MoepoiState extends State<Moepoi> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {
-        '/': (context) => const Home(),
-        '/projects': (context) => const Projects(),
-        '/skills': (context) => const Skills(),
-        '/resume': (context) => const Resume(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return PageTransition(child: const Home(), type: PageTransitionType.fade);
+          case '/resume':
+            return PageTransition(child: const Resume(), type: PageTransitionType.leftToRight);
+          case '/skills':
+            return PageTransition(child: const Skills(), type: PageTransitionType.bottomToTop);
+          case '/projects':
+            return PageTransition(child: const Projects(), type: PageTransitionType.rightToLeft);
+          default:
+            return PageTransition(child: const Home(), type: PageTransitionType.fade);
+        }
       },
     );
   }

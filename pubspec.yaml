@@ -31,9 +31,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons_maker: ^0.10.2
+  flutter_svg: ^1.1.0
   flutter_web_plugins:
     sdk: flutter
-  flutter_svg: ^1.1.0
+  page_transition: ^2.0.5
   url_launcher: ^6.1.2
 
 dev_dependencies:
