@@ -1,16 +1,19 @@
-# moepoi_site
+# 💩**MOEPOI.DEV**
 
-A new Flutter project.
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/25db2e9192d54ce99f7a151230e6f0a8)](https://www.codacy.com/gh/moepoi/moepoi.dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=moepoi/moepoi.dev&amp;utm_campaign=Badge_Grade)
+[![CodeFactor](https://www.codefactor.io/repository/github/moepoi/moepoi.dev/badge)](https://www.codefactor.io/repository/github/moepoi/moepoi.dev)
+[![wakatime](https://wakatime.com/badge/user/034c5ac1-f43f-415b-9323-d44d83de1bac/project/1de3b157-fd29-4dc9-876c-bd39805ee927.svg)](https://wakatime.com/badge/user/034c5ac1-f43f-415b-9323-d44d83de1bac/project/1de3b157-fd29-4dc9-876c-bd39805ee927)
 
-## Getting Started
+## Build Setup
 
-This project is a starting point for a Flutter application.
+```bash
+# install dependencies
+$ flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
+# serve with hot reload
+$ flutter run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# build for production
+$ flutter build web --web-renderer html
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
