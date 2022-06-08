@@ -1,4 +1,3 @@
-import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
@@ -139,7 +138,6 @@ class _HomeState extends State<Home> {
                       flex: 1,
                       child: ElevatedButton(
                         onPressed: () {
-                          html.window.history.pushState(null, '', '/resume');
                           Navigator.pushNamed(context, '/resume');
                         },
                         style: ButtonStyle(
@@ -158,7 +156,6 @@ class _HomeState extends State<Home> {
                       flex: 1,
                       child: ElevatedButton(
                         onPressed: () {
-                          html.window.history.pushState(null, '', '/skills');
                           Navigator.pushNamed(context, '/skills');
                         },
                         style: ButtonStyle(
@@ -177,7 +174,6 @@ class _HomeState extends State<Home> {
                       flex: 1,
                       child: ElevatedButton(
                         onPressed: () {
-                          html.window.history.pushState(null, '', '/projects');
                           Navigator.pushNamed(context, '/projects');
                         },
                         style: ButtonStyle(

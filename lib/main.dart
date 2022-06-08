@@ -28,15 +28,15 @@ class _MoepoiState extends State<Moepoi> {
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/':
-            return PageTransition(child: const Home(), type: PageTransitionType.fade);
+            return PageTransition(child: const Home(), type: PageTransitionType.fade, settings: settings);
           case '/resume':
-            return PageTransition(child: const Resume(), type: PageTransitionType.leftToRight);
+            return PageTransition(child: const Resume(), type: PageTransitionType.leftToRight, settings: settings);
           case '/skills':
-            return PageTransition(child: const Skills(), type: PageTransitionType.bottomToTop);
+            return PageTransition(child: const Skills(), type: PageTransitionType.bottomToTop, settings: settings);
           case '/projects':
-            return PageTransition(child: const Projects(), type: PageTransitionType.rightToLeft);
+            return PageTransition(child: const Projects(), type: PageTransitionType.rightToLeft, settings: settings);
           default:
-            return PageTransition(child: const Home(), type: PageTransitionType.fade);
+            return PageTransition(child: const Home(), type: PageTransitionType.fade, settings: settings);
         }
       },
     );

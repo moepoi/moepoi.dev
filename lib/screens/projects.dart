@@ -1,4 +1,3 @@
-import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
 import 'package:moepoi_site/components/project_box.dart';
@@ -32,8 +31,7 @@ class _ProjectsState extends State<Projects> {
               child: IconButton(
                 icon: const Icon(Icons.close, color: Color.fromARGB(255, 80, 192, 144),),
                 onPressed: () {
-                  html.window.history.pushState(null, '', '/');
-                  Navigator.pushReplacementNamed(context, '/');
+                  Navigator.pop(context);
                 },
               ),
             ),
