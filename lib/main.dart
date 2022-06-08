@@ -29,7 +29,7 @@ class _MoepoiState extends State<Moepoi> {
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/':
-            return PageTransition(child: const Home(), type: PageTransitionType.fade, settings: settings);
+            return PageTransition(child: const Home(), type: PageTransitionType.size, alignment: Alignment.bottomCenter, settings: settings);
           case '/resume':
             return PageTransition(child: const Resume(), type: PageTransitionType.leftToRight, settings: settings);
           case '/skills':
