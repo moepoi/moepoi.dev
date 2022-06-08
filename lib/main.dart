@@ -6,6 +6,7 @@ import 'package:moepoi_site/screens/home.dart';
 import 'package:moepoi_site/screens/projects.dart';
 import 'package:moepoi_site/screens/resume.dart';
 import 'package:moepoi_site/screens/skills.dart';
+import 'package:moepoi_site/screens/not_found.dart';
 
 void main() {
   setUrlStrategy(PathUrlStrategy());
@@ -36,7 +37,7 @@ class _MoepoiState extends State<Moepoi> {
           case '/projects':
             return PageTransition(child: const Projects(), type: PageTransitionType.rightToLeft, settings: settings);
           default:
-            return PageTransition(child: const Home(), type: PageTransitionType.fade, settings: settings);
+            return PageTransition(child: const NotFound(), type: PageTransitionType.rotate, alignment: Alignment.bottomCenter, duration: const Duration(seconds: 1), settings: settings);
         }
       },
     );
