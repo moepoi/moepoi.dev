@@ -8,17 +8,55 @@ class ResumeEducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const Text('Education', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),),
-        const SizedBox(height: 20.0,),
-        Text(resumeData['education']![0]['level'].toString(), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-        const SizedBox(height: 5.0,),
-        Text(resumeData['education']![0]['institution'].toString(), style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
-        const SizedBox(height: 5.0,),
-        Text(resumeData['education']![0]['duration'].toString(), style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),),
-      ]
-    );
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const Text(
+            'Education',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          Text(
+            resumeData['education']![0]['level'].toString(),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Text(
+            resumeData['education']![0]['institution'].toString(),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Text(
+            resumeData['education']![0]['duration'].toString(),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            resumeData['education']![1]['level'].toString(),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Text(
+            resumeData['education']![1]['institution'].toString(),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Text(
+            resumeData['education']![1]['duration'].toString(),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          ),
+        ]);
   }
 }

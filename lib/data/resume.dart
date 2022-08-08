@@ -28,14 +28,25 @@ var resumeData = {
       'name': 'Biswap',
       'role': 'Community Driver',
       'duration': '2021 - Present',
-      'description': 'Manage International & Indonesian Community ',
-    }
+      'description': 'Manage International & Indonesian Community',
+    },
+    {
+      'name': 'Tarumanagara University',
+      'role': 'Student Assistant',
+      'duration': '2022 - Present',
+      'description': '-',
+    },
   ],
   'education': [
     {
       'level': 'Senior High School',
       'institution': 'Sekolah Methodist Jakarta',
       'duration': '2017 - 2020',
+    },
+    {
+      'level': 'Undergraduate - Computer Science',
+      'institution': 'Tarumanagara University',
+      'duration': '2020 - 2024',
     },
   ],
   'language': [
