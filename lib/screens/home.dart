@@ -152,6 +152,27 @@ class _HomeState extends State<Home> {
                         fit: BoxFit.contain,
                         semanticsLabel: 'IpInfo',
                       ),
+                    )),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: InkWell(
+                      splashFactory: NoSplash.splashFactory,
+                      onTap: () async {
+                        if (!await launchUrl(Uri.parse(
+                            'https://etherscan.io/enslookup-search?search=moepoi.eth'))) {
+                          throw 'Could not launch';
+                        }
+                      },
+                      child: SvgPicture.asset(
+                        'assets/images/home/ens.svg',
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.contain,
+                        semanticsLabel: 'ENS',
+                      ),
                     ))
               ],
             ),
