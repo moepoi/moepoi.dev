@@ -78,6 +78,27 @@ class _HomeState extends State<Home> {
                       splashFactory: NoSplash.splashFactory,
                       onTap: () async {
                         if (!await launchUrl(
+                            Uri.parse('https://moe.onl/@moepoi'))) {
+                          throw 'Could not launch';
+                        }
+                      },
+                      child: SvgPicture.asset(
+                        'assets/images/home/mastodon.svg',
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.contain,
+                        semanticsLabel: 'Mastodon',
+                      ),
+                    )),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: InkWell(
+                      splashFactory: NoSplash.splashFactory,
+                      onTap: () async {
+                        if (!await launchUrl(
                             Uri.parse('https://github.com/moepoi'))) {
                           throw 'Could not launch';
                         }
