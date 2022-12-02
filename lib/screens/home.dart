@@ -99,27 +99,6 @@ class _HomeState extends State<Home> {
                       splashFactory: NoSplash.splashFactory,
                       onTap: () async {
                         if (!await launchUrl(
-                            Uri.parse('https://gitlab.com/moepoi'))) {
-                          throw 'Could not launch';
-                        }
-                      },
-                      child: SvgPicture.asset(
-                        'assets/images/home/gitlab.svg',
-                        height: 40,
-                        width: 40,
-                        fit: BoxFit.contain,
-                        semanticsLabel: 'Gitlab',
-                      ),
-                    )),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Flexible(
-                    flex: 1,
-                    child: InkWell(
-                      splashFactory: NoSplash.splashFactory,
-                      onTap: () async {
-                        if (!await launchUrl(
                             Uri.parse('https://linkedin.com/in/moepoi'))) {
                           throw 'Could not launch';
                         }
