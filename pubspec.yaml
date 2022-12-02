@@ -31,11 +31,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons_maker: ^0.10.2
-  flutter_svg: ^1.1.5
+  flutter_svg: ^1.1.6
   flutter_web_plugins:
     sdk: flutter
   page_transition: ^2.0.9
-  url_launcher: ^6.1.6
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_lints: ^2.0.0
