@@ -16,7 +16,7 @@
 
 <NavBar />
 
-<div class="flex flex-col justify-center items-center gap-5 py-5 max-w-4xl mx-4 sm:mx-6 md:mx-auto min-h-screen">
+<div class="flex flex-col items-center gap-5 py-5 max-w-4xl mx-4 sm:mx-6 md:mx-auto min-h-screen">
   <div class="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 m-4 rounded-xl flex items-center justify-between">
     <a href={`mailto:${emailAddress}`}><p class="text-white text-2xl font-bold">{emailAddress}</p></a>
     <button class="bg-white text-cyan-500 ml-5 px-4 py-2 rounded-xl" on:click={() => copyItem(emailAddress)}>Copy</button>
