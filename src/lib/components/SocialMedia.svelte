@@ -6,16 +6,16 @@
 </script>
 
 <div class="mt-5 flex">
-  <a class="mx-2" href="https://t.me/moepoi" target="_blank">
-      <img class="w-8 h-8 text-white" src={telegram} alt="Telegram">
+  <a class="mx-2" href="https://t.me/moepoi" target="_blank" aria-label="Telegram">
+    <img class="w-8 h-8" src={telegram} alt="Telegram">
   </a>
-  <a class="mx-2" href="https://moe.onl/@moepoi" target="_blank">
-      <img class="w-8 h-8 text-white" src={mastodon} alt="Mastodon">
+  <a class="mx-2" href="https://moe.onl/@moepoi" target="_blank" aria-label="Mastodon">
+    <img class="w-8 h-8" src={mastodon} alt="Mastodon">
   </a>
-  <a class="mx-2" href="https://github.com/moepoi" target="_blank">
-      <img class="w-8 h-8 text-white" src={github} alt="GitHub">
+  <a class="mx-2" href="https://github.com/moepoi" target="_blank" aria-label="GitHub">
+    <img class="w-8 h-8" src={github} alt="GitHub">
   </a>
-  <a class="mx-2" href="https://linkedin.com/in/moepoi" target="_blank">
-      <img class="w-8 h-8 text-white" src={linkedin} alt="LinkedIn">
+  <a class="mx-2" href="https://linkedin.com/in/moepoi" target="_blank" aria-label="LinkedIn">
+    <img class="w-8 h-8" src={linkedin} alt="LinkedIn">
   </a>
 </div>
