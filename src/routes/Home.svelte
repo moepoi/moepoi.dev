@@ -4,6 +4,10 @@
   import profile from '../lib/assets/profile.webp';
 </script>
 
+<svelte:head>
+  <link rel="preload" href="{profile}" as="image">
+</svelte:head>
+
 <NavBar isFixed={true} />
 
 <div class="flex flex-col items-center justify-center h-screen flex-wrap">
