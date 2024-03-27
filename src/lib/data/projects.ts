@@ -9,6 +9,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'Frontier of Hell',
+    image: 'assets/images/projects/frontier-of-hell.webp',
+    date: '6 October 2023',
+    categories: 'Game',
+    description: 'Frontier of Hell is a tower defense game that requires players to protect the base from enemy attacks at each stage.',
+    url: 'https://github.com/moepoi/Frontier-of-Hell'
+  },
+  {
     title: 'Kitchen Counts',
     image: 'assets/images/projects/kitchen-counts.webp',
     date: '6 October 2022',
