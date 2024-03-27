@@ -3,6 +3,10 @@
   import { Link } from 'svelte-routing';
 </script>
 
+<svelte:head>
+  <link rel="preload" href="{NotFoundImage}" as="image">
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center min-h-screen">
   <h1 class="text-5xl font-bold text-white">Not Found</h1>
   <img class="w-45 h-40 mt-5" src={NotFoundImage} alt="" />
