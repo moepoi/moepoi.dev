@@ -1,5 +1,5 @@
-export let emailAddress: string = 'moe@poi.lol';
-export let publicKey: string = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+export const emailAddress: string = 'moe@poi.lol';
+export const publicKey: string = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEZa+LhhYJKwYBBAHaRw8BAQdAoBI6qbxs0VSL2hgo6+3CfSfBJYXeQgOhMv9h
 4+KRcSS0Jk1pY2hhZWwgV2lsbGlhbSBKb25hdGhhbiA8bW9lQHBvaS5sb2w+iJYE

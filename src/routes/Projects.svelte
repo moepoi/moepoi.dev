@@ -2,7 +2,7 @@
   import NavBar from '../lib/components/NavBar.svelte';
   import { projects, type Project } from '../lib/data/projects';
 
-  let projectsData: Project[] = projects;
+  const projectsData: Project[] = projects;
 </script>
 
 <NavBar />

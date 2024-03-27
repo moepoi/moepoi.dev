@@ -2,11 +2,11 @@
   import NavBar from '../lib/components/NavBar.svelte';
   import { experience, education, language, type Resume } from '../lib/data/resume';
 
-  let experienceData: Resume[] = experience;
-  let educationData: Resume[] = education;
-  let languageData: Resume[] = language;
+  const experienceData: Resume[] = experience;
+  const educationData: Resume[] = education;
+  const languageData: Resume[] = language;
 
-  let resumeFile: string = '/assets/resume/Resume-Michael-William-Jonathan.pdf';
+  const resumeFile: string = '/assets/resume/Resume-Michael-William-Jonathan.pdf';
 </script>
 
 <NavBar />
