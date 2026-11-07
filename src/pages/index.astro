@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.svelte';
+import profileImage from '../assets/images/profile.webp';
+---
+
+<Layout title="Moepoi ~ Home">
+  <div class="flex-1 flex flex-col items-center justify-center max-w-xl mx-auto w-full text-center py-4 sm:py-8">
+    <!-- Status indicator pill -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-slate-300 mb-6 shadow-inner">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Software Developer & System Admin</span>
+    </div>
+
+    <!-- Profile Avatar with subtle glow ring -->
+    <div class="relative group mb-6">
+      <div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-cyan-500/30 via-blue-500/20 to-purple-500/30 blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <Image
+        src={profileImage}
+        alt="Moepoi Profile"
+        class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover border-2 border-slate-700/80 shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]"
+        width={144}
+        height={144}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <!-- Name & Titles -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400">
+      Moepoi
+    </h1>
+    <p class="mt-2 text-base sm:text-lg text-slate-300 font-medium">
+      Michael William Jonathan
+    </p>
+
+    <p class="mt-4 text-sm sm:text-base text-slate-400 max-w-md leading-relaxed">
+      Crafting scalable software, robust backend systems, and delightful digital experiences.
+    </p>
+
+    <!-- Social Media Links -->
+    <div class="mt-6">
+      <SocialLinks client:load />
+    </div>
+  </div>
+</Layout>

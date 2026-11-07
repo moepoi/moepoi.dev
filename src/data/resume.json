@@ -1,0 +1,111 @@
+{
+  "basics": {
+    "name": "Michael William Jonathan",
+    "role": "Software Developer & System Administrator",
+    "email": "moe@poi.lol",
+    "location": "Jakarta, Indonesia",
+    "resumePdf": "/assets/resume/Resume-Michael-William-Jonathan.pdf"
+  },
+  "experiences": [
+    {
+      "company": "Bank Central Asia (BCA)",
+      "role": "IT Specialist",
+      "period": "2024 - Present",
+      "type": "Full-time",
+      "location": "Jakarta, Indonesia",
+      "description": "Contributed to internal enterprise systems supporting International Business and back-office banking operations.",
+      "skills": ["Java", "Spring Boot", "Oracele Database"]
+    },
+    {
+      "company": "Bank Central Asia (BCA)",
+      "role": "Backend Developer",
+      "period": "2023",
+      "type": "Contract",
+      "location": "Jakarta, Indonesia",
+      "description": "Contributed to internal enterprise systems supporting International Business and back-office banking operations.",
+      "skills": ["Java", "Spring Boot", "Oracele Database"]
+    },
+    {
+      "company": "Tarumanagara University",
+      "role": "Student Assistant",
+      "period": "2022 - 2023",
+      "type": "Contract",
+      "location": "Jakarta, Indonesia",
+      "description": "Assisted faculty professors and mentored junior students in laboratory sessions and coursework.",
+      "skills": ["Mentoring", "Computer Science", "Lab Supervision"]
+    },
+    {
+      "company": "Biswap",
+      "role": "Community Driver",
+      "period": "2021 - 2023",
+      "type": "Full-time",
+      "location": "Remote",
+      "description": "Drove community engagement, facilitated user onboarding, and supported global user discussions.",
+      "skills": ["Community Management", "Web3", "Public Relations"]
+    },
+    {
+      "company": "Brainly",
+      "role": "Moderator",
+      "period": "2019",
+      "type": "Freelance",
+      "location": "Remote",
+      "description": "Enforced community guidelines, reviewed user-generated answers, and maintained academic content quality.",
+      "skills": ["Content Moderation", "Community Standards"]
+    },
+    {
+      "company": "Notify.moe",
+      "role": "Staff",
+      "period": "2018 - Present",
+      "type": "Freelance",
+      "location": "Remote",
+      "description": "Active staff and contributor to the Notify.moe anime tracker platform and community ecosystem.",
+      "skills": ["Open Source", "Platform Maintenance", "Community"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Tarumanagara University",
+      "degree": "Bachelor of Computer Science",
+      "period": "2020 - 2024",
+      "location": "Jakarta, Indonesia",
+      "description": "Studied Computer Science with focus on software engineering, algorithms, networks, and distributed systems."
+    },
+    {
+      "institution": "Methodist School",
+      "degree": "Senior High School (Science & Tech)",
+      "period": "2017 - 2020",
+      "location": "Indonesia",
+      "description": "High school education with concentration in Natural Sciences and Mathematics."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Indonesian",
+      "level": "Native",
+      "percent": 100
+    },
+    {
+      "name": "English",
+      "level": "Fluent / Professional",
+      "percent": 80
+    }
+  ],
+  "certificates": [
+    {
+      "title": "AIC Finalist - Loli Protector",
+      "issuer": "Anantara Innovation Challenge (AIC)",
+      "file": "/certificates/AIC_FINALIST_Loli Protector.pdf"
+    },
+    {
+      "title": "HOLOGY - Abiwara",
+      "issuer": "Hology Competition",
+      "file": "/certificates/HOLOGY_Abiwara_MICHAEL WILLIAM JONATHAN.pdf"
+    },
+    {
+      "title": "KIOSTIX ",
+      "issuer": "KIOSTIX",
+      "file": "/certificates/KIOSTIX_GNUWEEB_MICHAEL WILLIAM JONATHAN.pdf"
+    }
+  ]
+}
+

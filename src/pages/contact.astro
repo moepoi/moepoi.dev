@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactView from '../components/ContactView.svelte';
+---
+
+<Layout 
+  title="Contact & PGP Key ~ Moepoi"
+  description="Contact Michael William Jonathan (Moepoi) via email or send encrypted messages using his Ed25519 PGP public key."
+>
+  <div class="w-full flex justify-center py-4 sm:py-8">
+    <ContactView client:load />
+  </div>
+</Layout>
+

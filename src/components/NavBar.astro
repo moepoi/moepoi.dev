@@ -1,0 +1,71 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+// Normalize current path (remove trailing slash except for root)
+const normalizedPath = currentPath.length > 1 && currentPath.endsWith('/') 
+  ? currentPath.slice(0, -1) 
+  : currentPath;
+
+const navItems = [
+  {
+    name: 'Home',
+    href: '/',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`
+  },
+  {
+    name: 'Projects',
+    href: '/projects',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`
+  },
+  {
+    name: 'Resume',
+    href: '/resume',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />`
+  },
+  {
+    name: 'Contact',
+    href: '/contact',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`
+  }
+];
+---
+
+<header class="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none">
+  <nav 
+    class="pointer-events-auto flex items-center p-1 sm:p-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/60 shadow-xl shadow-black/40 ring-1 ring-white/10 gap-1 sm:gap-1.5"
+    aria-label="Main Navigation"
+  >
+    {navItems.map((item) => {
+      const isActive = item.href === '/' 
+        ? normalizedPath === '/' 
+        : normalizedPath.startsWith(item.href);
+
+      return (
+        <a
+          href={item.href}
+          title={item.name}
+          aria-label={item.name}
+          aria-current={isActive ? 'page' : undefined}
+          class={`relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 select-none ${
+            isActive
+              ? 'text-cyan-300 bg-cyan-950/70 border border-cyan-500/40 shadow-[0_0_16px_rgba(6,182,212,0.25)] font-semibold'
+              : 'text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent'
+          }`}
+        >
+          <svg 
+            class={`w-4 h-4 sm:w-4 sm:h-4 shrink-0 transition-transform duration-200 ${isActive ? 'text-cyan-400 scale-105' : 'text-slate-400'}`} 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+            set:html={item.icon}
+          />
+          <span class="hidden sm:inline whitespace-nowrap">{item.name}</span>
+        </a>
+      );
+    })}
+  </nav>
+</header>

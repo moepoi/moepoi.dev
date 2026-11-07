@@ -1,0 +1,94 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import NavBar from '../components/NavBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Moepoi ~",
+  description = "Michael William Jonathan (Moepoi) - Personal Portfolio, Resume, and Projects",
+  image = "/assets/images/banner.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://moepoi.dev');
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Moepoi, Michael William Jonathan, Portfolio, Software Engineer, System Administrator, Resume, Projects" />
+    <meta name="author" content="Michael William Jonathan" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#020617" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:site" content="@_moepoi" />
+    <meta property="twitter:creator" content="@_moepoi" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <ClientRouter />
+
+    <!-- JSON-LD Structured Data for Search Engines -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Michael William Jonathan",
+      "alternateName": "Moepoi",
+      "url": "https://moepoi.dev",
+      "image": "https://moepoi.dev/assets/images/banner.jpg",
+      "jobTitle": "Software Developer & System Administrator",
+      "sameAs": [
+        "https://github.com/moepoi",
+        "https://linkedin.com/in/moepoi",
+        "https://t.me/moepoi",
+        "https://blog.moe.team"
+      ]
+    })} />
+  </head>
+  <body class="bg-[#020617] text-slate-100 min-h-[100dvh] flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden relative">
+    <!-- Ambient background light effects -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-cyan-600/15 via-blue-600/10 to-indigo-600/15 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[300px] bg-indigo-900/10 blur-[140px] rounded-full"></div>
+    </div>
+
+    <!-- Navigation -->
+    <NavBar />
+
+    <!-- Main Content -->
+    <main class="flex-1 w-full max-w-full flex flex-col z-10 pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6">
+      <slot />
+    </main>
+  </body>
+</html>
+

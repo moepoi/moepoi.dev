@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResumeView from '../components/ResumeView.svelte';
+---
+
+<Layout 
+  title="Resume ~ Moepoi"
+  description="Experience, education, skills, and certifications of Michael William Jonathan (Moepoi)."
+>
+  <div class="w-full flex justify-center py-4 sm:py-8">
+    <ResumeView client:load />
+  </div>
+</Layout>
+

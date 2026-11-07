@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectsView from '../components/ProjectsView.svelte';
+---
+
+<Layout 
+  title="Projects ~ Moepoi"
+  description="Explore software, open-source projects, bots, apps, and games created by Michael William Jonathan (Moepoi)."
+>
+  <div class="w-full flex justify-center py-4 sm:py-8">
+    <ProjectsView client:load />
+  </div>
+</Layout>
+

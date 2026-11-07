@@ -1,0 +1,44 @@
+# GitLab Pages CI/CD Pipeline for Astro + Svelte
+image: node:26
+
+stages:
+  - test
+  - deploy
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+# Cache npm dependencies between pipeline runs for fast builds
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+
+# Step 1: Validasi Astro types & sintaks
+typecheck:
+  stage: test
+  before_script:
+    - npm ci --prefer-offline
+  script:
+    - npm run check
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# Step 2: Build & Publikasi ke GitLab Pages
+pages:
+  stage: deploy
+  before_script:
+    - npm ci --prefer-offline
+  script:
+    - npm run build
+    - rm -rf public
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
