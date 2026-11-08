@@ -70,3 +70,59 @@ const navItems = [
     })}
   </nav>
 </header>
+
+<script>
+  function initNav() {
+    const nav = document.querySelector('nav[aria-label="Main Navigation"]');
+    if (!nav) return;
+    const links = nav.querySelectorAll<HTMLAnchorElement>('a');
+
+    const activeClasses = ['text-cyan-300', 'bg-cyan-950/70', 'border-cyan-500/40', 'shadow-[0_0_16px_rgba(6,182,212,0.25)]', 'font-semibold'];
+    const inactiveClasses = ['text-slate-400', 'hover:text-white', 'hover:bg-slate-800/60', 'border-transparent'];
+
+    function updateActive(activeLink: HTMLAnchorElement) {
+      links.forEach((link) => {
+        const svg = link.querySelector('svg');
+        if (link === activeLink) {
+          link.classList.remove(...inactiveClasses);
+          link.classList.add(...activeClasses);
+          link.setAttribute('aria-current', 'page');
+          if (svg) {
+            svg.classList.remove('text-slate-400');
+            svg.classList.add('text-cyan-400', 'scale-105');
+          }
+        } else {
+          link.classList.remove(...activeClasses);
+          link.classList.add(...inactiveClasses);
+          link.removeAttribute('aria-current');
+          if (svg) {
+            svg.classList.remove('text-cyan-400', 'scale-105');
+            svg.classList.add('text-slate-400');
+          }
+        }
+      });
+    }
+
+    links.forEach((link) => {
+      // Optimistic instant visual feedback on pointerdown (touch/click press down) in 0ms
+      link.addEventListener('pointerdown', () => {
+        updateActive(link);
+      });
+    });
+
+    // Ensure active state matches window URL after history traversal or swaps
+    function syncWithUrl() {
+      const current = window.location.pathname.replace(/\/$/, '') || '/';
+      links.forEach((link) => {
+        const href = (link.getAttribute('href') || '/').replace(/\/$/, '') || '/';
+        const isMatch = href === '/' ? current === '/' : current.startsWith(href);
+        if (isMatch) updateActive(link);
+      });
+    }
+
+    document.addEventListener('astro:after-swap', syncWithUrl, { once: true });
+  }
+
+  initNav();
+  document.addEventListener('astro:page-load', initNav);
+</script>

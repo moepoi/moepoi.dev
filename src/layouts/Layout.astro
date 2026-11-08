@@ -89,6 +89,68 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://moepoi.d
     <main class="flex-1 w-full max-w-full flex flex-col z-10 pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6">
       <slot />
     </main>
+
+    <!-- In-Memory Page Cache & Instant Navigation Accelerator -->
+    <script>
+      const htmlCache = new Map<string, string>();
+      const parser = new DOMParser();
+      const routes = ['/', '/projects', '/resume', '/contact'];
+
+      async function cacheRoute(path: string) {
+        const cleanPath = path.replace(/\/$/, '') || '/';
+        if (htmlCache.has(cleanPath)) return;
+        try {
+          const fetchUrl = cleanPath === '/' ? '/' : `${cleanPath}/`;
+          const res = await fetch(fetchUrl, { priority: 'low' });
+          if (res.ok) {
+            const html = await res.text();
+            htmlCache.set(cleanPath, html);
+          }
+        } catch {}
+      }
+
+      function preCacheAll() {
+        // Respect data saver mode or very slow connections
+        // @ts-ignore
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && (conn.saveData || /2g/.test(conn.effectiveType))) return;
+
+        routes.forEach((route) => {
+          const current = window.location.pathname.replace(/\/$/, '') || '/';
+          if (route !== current) {
+            cacheRoute(route);
+          }
+        });
+      }
+
+      if (typeof window !== 'undefined') {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(preCacheAll);
+        } else {
+          setTimeout(preCacheAll, 100);
+        }
+
+        // Intercept Astro preparation: load instantly from RAM
+        document.addEventListener('astro:before-preparation', (event) => {
+          const cleanPath = event.to.pathname.replace(/\/$/, '') || '/';
+          const html = htmlCache.get(cleanPath);
+          if (html) {
+            const doc = parser.parseFromString(html, 'text/html');
+            doc.querySelectorAll('noscript').forEach((el) => el.remove());
+            event.newDocument = doc;
+            event.loader = async () => {};
+          }
+        });
+
+        // Skip GPU snapshot rasterization lock to achieve true 0ms DOM swap
+        document.addEventListener('astro:before-swap', (event) => {
+          if (event.viewTransition) {
+            event.viewTransition.ready?.catch?.(() => {});
+            event.viewTransition.skipTransition?.();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
 
