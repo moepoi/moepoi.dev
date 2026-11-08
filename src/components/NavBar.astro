@@ -47,6 +47,7 @@ const navItems = [
       return (
         <a
           href={item.href}
+          data-astro-prefetch="viewport"
           title={item.name}
           aria-label={item.name}
           aria-current={isActive ? 'page' : undefined}

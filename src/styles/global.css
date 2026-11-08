@@ -51,6 +51,12 @@ pre, code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+/* Instantaneous page transitions (eliminates 300ms artificial fade delay) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0s !important;
+}
+
 /* Ambient glow background accents */
 .bg-radial-gradient {
   background-image: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
