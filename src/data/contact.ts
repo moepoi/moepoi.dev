@@ -1,15 +1,74 @@
 export const emailAddress: string = 'moe@poi.lol';
 
-export const pgpInfo = {
+export interface PgpSubkey {
+  id: string;
+  fingerprint: string;
+  type: string;
+  usage: string;
+  usageCode: 'E' | 'S' | 'A';
+  created: string;
+  expires?: string;
+}
+
+export interface PgpInfo {
+  keyId: string;
+  fingerprint: string;
+  algorithm: string;
+  capabilities: string;
+  created: string;
+  downloadUrl: string;
+  identities: string[];
+  subkeys: PgpSubkey[];
+}
+
+export const pgpInfo: PgpInfo = {
   keyId: 'EADBACA726DD4853',
   fingerprint: 'C149 81B3 43BC 3F43 3B8D F191 EADB ACA7 26DD 4853',
   algorithm: 'Ed25519 (256-bit elliptic curve)',
-  created: '2024-01',
+  capabilities: 'Sign, Certify [SC]',
+  created: '2024-01-23',
   downloadUrl: '/moepoi.asc',
   identities: [
     'Michael William Jonathan <moe@poi.lol>',
-    'Michael William Jonathan <moe@gnuweeb.org>',
-    'Michael William Jonathan <moe@chocola.dev>'
+    'Michael William Jonathan <moe@chocola.dev>',
+    'Michael William Jonathan <moe@gnuweeb.org>'
+  ],
+  subkeys: [
+    {
+      id: 'EBF092E3D12C1340',
+      fingerprint: '90A9 7564 39DC E57D 6FA9 CAA7 EBF0 92E3 D12C 1340',
+      type: 'cv25519',
+      usage: 'Encrypt',
+      usageCode: 'E',
+      created: '2024-01-23'
+    },
+    {
+      id: '97ABF641CD59EB79',
+      fingerprint: 'D67C 5F75 B855 B720 4D91 A8FF 97AB F641 CD59 EB79',
+      type: 'cv25519',
+      usage: 'Encrypt',
+      usageCode: 'E',
+      created: '2026-11-13',
+      expires: '2030-01-01'
+    },
+    {
+      id: '8C7929380016AE65',
+      fingerprint: 'F14B C5A3 A10D 1891 3CEB DAC8 8C79 2938 0016 AE65',
+      type: 'ed25519',
+      usage: 'Sign',
+      usageCode: 'S',
+      created: '2026-11-13',
+      expires: '2030-01-01'
+    },
+    {
+      id: '485563B2BA25341A',
+      fingerprint: '119E BEF3 59BA 1F30 032B 1A19 4855 63B2 BA25 341A',
+      type: 'ed25519',
+      usage: 'Authenticate',
+      usageCode: 'A',
+      created: '2026-11-13',
+      expires: '2030-01-01'
+    }
   ]
 };
 
@@ -79,7 +138,23 @@ AgQWAgMBAh4HAheAAAoJEOrbrKcm3UhTYYEA/2sUueyXtdCworteuwRm7wWGhQs3
 BGWvi4YSCisGAQQBl1UBBQEBB0B1Qmf/FiuRs9ngQP0xFw8J6HU5/5AgK/Vz3/BK
 rVLoOwMBCAeIeAQYFgoAIBYhBMFJgbNDvD9DO43xkerbrKcm3UhTBQJlr4uGAhsM
 AAoJEOrbrKcm3UhTxoEBAPnLfQUL8G0LCW+kMZJHZzve4mklVZ6Ph4zU/WevlHEJ
-AP40Q0yKJKoc8D/kg0FdojdkFYMldIA6einCd7isv3w4Cg==
-=9vmR
+AP40Q0yKJKoc8D/kg0FdojdkFYMldIA6einCd7isv3w4Crg4BGr22NESCisGAQQB
+l1UBBQEBB0CllvAwpT4UFWByDA/3d71yP+GQx3UMDWVnZd03NjO6HwMBCAeImgQY
+FgoAQhYhBMFJgbNDvD9DO43xkerbrKcm3UhTBQJq9tjRGxSAAAAAAAQADm1hbnUy
+LDIuNSsxLjExLDIsMQIbDAUJBeSdPwAKCRDq26ynJt1IU+pVAP97heJouXqao3zA
+fABQGVzLAOV8mbimDmIiqDQhc9LTbQEAlrJ8lqxhK1qcGH4J/0W3yQn/SDbY+TYc
+K0Hr/VzTpQa4MwRq9tjyFgkrBgEEAdpHDwEBB0D4OuZGsCGoFgj+6hXEvm0ia5jw
+jm4aGdzQqRnS7fJHa4kBEQQYFgoAQhYhBMFJgbNDvD9DO43xkerbrKcm3UhTBQJq
+9tjyGxSAAAAAAAQADm1hbnUyLDIuNSsxLjExLDIsMQIbAgUJBeSdHgCBCRDq26yn
+Jt1IU3YgBBkWCgAdFiEE8UvFo6ENGJE869rIjHkpOAAWrmUFAmr22PIACgkQjHkp
+OAAWrmWg7wD9G+5Ejs1gKrJG/q6MNklrOpDSYqdzD9sWnW6w2UadZIABAK/h8a/I
+9OXMEgjMQkw9YixVnD9BZWQrVV+vORQi0CcIQfMA/RQh2vp8x0dLcHYIyOUDs3UE
+cwVPdoDtB8A/f5Z2/ZooAQDIn+0WJrinLj8R3hyY7+LJItRSt4dEP5GmY8a4JIZR
+CLgzBGr22Q0WCSsGAQQB2kcPAQEHQLzwpIgVOfy7S1uuysbV2Z3/o5GmczrmGgzW
+C4Z9gwFKiJoEGBYKAEIWIQTBSYGzQ7w/QzuN8ZHq26ynJt1IUwUCavbZDRsUgAAA
+AAAEAA5tYW51MiwyLjUrMS4xMSwyLDECGyAFCQXknQMACgkQ6tuspybdSFMM8gD/
+U3G8Bwcc1S0KttAPR7epFguuGT+nCSNj3nHi6vw0B1oBANyB5QnUANs9SnpOALev
+Wa96mcY1uWuydtj7AQVVpUQD
+=Kk6x
 -----END PGP PUBLIC KEY BLOCK-----`;
 

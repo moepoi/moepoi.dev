@@ -162,7 +162,7 @@
             <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
             </svg>
-            Fingerprint
+            Primary Key Fingerprint
           </span>
           <button
             on:click={() => copyToClipboard(pgpInfo.fingerprint, 'Fingerprint')}
@@ -174,6 +174,13 @@
         <p class="font-mono text-slate-200 text-[11px] sm:text-xs tracking-wide break-all select-all">
           {pgpInfo.fingerprint}
         </p>
+        <div class="flex items-center gap-3 text-[11px] text-slate-400 font-mono pt-1 border-t border-slate-900/80 flex-wrap">
+          <span>Key ID: <strong class="text-slate-300 font-semibold">{pgpInfo.keyId}</strong></span>
+          {#if pgpInfo.capabilities}
+            <span class="text-cyan-400/90">• [{pgpInfo.capabilities}]</span>
+          {/if}
+          <span>• Created: {pgpInfo.created}</span>
+        </div>
       </div>
 
       <!-- Associated Identities -->
@@ -187,6 +194,68 @@
           {/each}
         </div>
       </div>
+
+      <!-- Subkeys Section -->
+      {#if pgpInfo.subkeys && pgpInfo.subkeys.length > 0}
+        <div class="space-y-2 pt-2 border-t border-slate-800/80">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              Subkeys ({pgpInfo.subkeys.length})
+            </span>
+            <span class="text-[10px] text-slate-500 font-mono">Modern GnuPG Layout</span>
+          </div>
+
+          <div class="grid grid-cols-1 gap-2">
+            {#each pgpInfo.subkeys as subkey}
+              <div class="p-2.5 sm:p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-slate-700/80 transition-colors space-y-1.5">
+                <div class="flex items-center justify-between flex-wrap gap-1.5 text-xs">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold {
+                      subkey.usageCode === 'E' 
+                        ? 'bg-cyan-950/80 text-cyan-300 border border-cyan-800/50' 
+                        : subkey.usageCode === 'S' 
+                        ? 'bg-purple-950/80 text-purple-300 border border-purple-800/50' 
+                        : 'bg-amber-950/80 text-amber-300 border border-amber-800/50'
+                    }">
+                      [{subkey.usageCode}] {subkey.usage}
+                    </span>
+                    <span class="font-mono text-slate-300 font-semibold text-[11px] sm:text-xs">
+                      {subkey.type}/{subkey.id}
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[10.5px] sm:text-[11px] text-slate-400 font-mono">
+                    <span>Created: {subkey.created}</span>
+                    {#if subkey.expires}
+                      <span class="text-amber-400/90">• Expires: {subkey.expires}</span>
+                    {:else}
+                      <span class="text-slate-500">• No expiry</span>
+                    {/if}
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-900/80">
+                  <span class="font-mono text-slate-400 text-[10px] sm:text-[11px] tracking-tight break-all select-all">
+                    {subkey.fingerprint}
+                  </span>
+                  <button
+                    on:click={() => copyToClipboard(subkey.fingerprint, `Subkey ${subkey.id}`)}
+                    class="shrink-0 text-[10.5px] text-cyan-400 hover:text-cyan-300 font-medium hover:underline flex items-center gap-1"
+                    title="Copy subkey fingerprint"
+                  >
+                    {#if copiedText === `Subkey ${subkey.id}`}
+                      <span class="text-emerald-400">Copied!</span>
+                    {:else}
+                      <span>Copy</span>
+                    {/if}
+                  </button>
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+      {/if}
     </div>
 
     <!-- Public Key Code Block Container -->
@@ -230,7 +299,7 @@
             aria-label="Expand public key"
           >
             <span class="text-xs text-cyan-400 font-medium bg-slate-900/90 px-3 py-1 rounded-full border border-slate-700 shadow-md">
-              Tap to expand full key (28 lines)
+              Tap to expand full key ({publicKey.trim().split('\n').length} lines)
             </span>
           </div>
         {/if}
